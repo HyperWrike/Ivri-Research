@@ -8,8 +8,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!modalBackdrop || !modalContainer) return;
 
+    // Helper: Close mobile nav drawer if open (e.g. Contact from drawer footer)
+    function closeMobileNavIfOpen() {
+        const mobileDrawer = document.getElementById('mobile-nav-drawer');
+        const mobileBackdrop = document.getElementById('mobile-nav-backdrop');
+        const mobileToggle = document.getElementById('mobile-menu-toggle');
+        if (!mobileDrawer || !mobileDrawer.classList.contains('drawer-open')) return;
+
+        mobileDrawer.classList.remove('drawer-open');
+        if (mobileBackdrop) mobileBackdrop.classList.remove('backdrop-open');
+        if (mobileToggle) {
+            mobileToggle.setAttribute('aria-expanded', 'false');
+            const menuIcon = mobileToggle.querySelector('.mobile-menu-icon');
+            const closeIcon = mobileToggle.querySelector('.mobile-close-icon');
+            if (menuIcon) menuIcon.classList.remove('hidden');
+            if (closeIcon) closeIcon.classList.add('hidden');
+        }
+    }
+
     // Helper: Open Modal
     function openModal() {
+        closeMobileNavIfOpen();
         modalBackdrop.classList.remove('hidden');
         modalBackdrop.classList.add('flex');
         // Trigger reflow for transition

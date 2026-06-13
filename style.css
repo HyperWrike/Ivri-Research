@@ -108,3 +108,333 @@ body {
 .contact-modal-container {
     transition: transform 0.3s ease-out, opacity 0.3s ease-out;
 }
+
+/* ==========================================================================
+   Site Footer
+   ========================================================================== */
+
+.site-footer {
+    width: 100%;
+    overflow: hidden;
+}
+
+.site-footer__main {
+    background-color: #0F172A;
+    color: #f8fafc;
+    padding: 3.5rem 1rem 2.5rem;
+}
+
+.site-footer__container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+}
+
+.site-footer__logo {
+    display: inline-block;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: -0.01em;
+    transition: color 0.2s ease;
+}
+
+.site-footer__logo:hover {
+    color: #10B981;
+}
+
+.site-footer__description {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    line-height: 1.65;
+    color: #94a3b8;
+    max-width: 22rem;
+}
+
+.site-footer__heading {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #10B981;
+    margin-bottom: 1.25rem;
+}
+
+.site-footer__social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.625rem;
+    margin-top: 1.5rem;
+}
+
+.site-footer__social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.375rem;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #cbd5e1;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.site-footer__social-link svg {
+    width: 1.125rem;
+    height: 1.125rem;
+}
+
+.site-footer__social-link:hover {
+    background-color: #10B981;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.site-footer__nav-list,
+.site-footer__contact-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.site-footer__nav-list li + li {
+    margin-top: 0.625rem;
+}
+
+.site-footer__nav-list a,
+.site-footer__contact-trigger {
+    font-size: 0.875rem;
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    text-align: left;
+}
+
+.site-footer__nav-list a:hover,
+.site-footer__contact-trigger:hover {
+    color: #ffffff;
+}
+
+.site-footer__contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem;
+}
+
+.site-footer__contact-item + .site-footer__contact-item {
+    margin-top: 1.125rem;
+}
+
+.site-footer__contact-icon {
+    flex-shrink: 0;
+    font-size: 1.25rem;
+    color: #10B981;
+    margin-top: 0.125rem;
+}
+
+.site-footer__contact-label {
+    display: block;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #64748b;
+    margin-bottom: 0.25rem;
+}
+
+.site-footer__contact-value {
+    display: block;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #e2e8f0;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a.site-footer__contact-value:hover {
+    color: #10B981;
+}
+
+.site-footer__bottom {
+    background-color: #020617;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 1.25rem 1rem;
+}
+
+.site-footer__bottom-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.375rem;
+    text-align: center;
+}
+
+.site-footer__copyright {
+    font-size: 0.8125rem;
+    color: #64748b;
+    margin: 0;
+}
+
+.site-footer__tagline {
+    font-size: 0.75rem;
+    color: #475569;
+    margin: 0;
+    letter-spacing: 0.04em;
+}
+
+@media (min-width: 640px) {
+    .site-footer__main {
+        padding: 4rem 1.5rem 3rem;
+    }
+
+    .site-footer__container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem 2rem;
+    }
+
+    .site-footer__brand {
+        grid-column: span 2;
+    }
+
+    .site-footer__bottom-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+}
+
+@media (min-width: 1024px) {
+    .site-footer__main {
+        padding: 4.5rem 3rem 3.5rem;
+    }
+
+    .site-footer__container {
+        grid-template-columns: 1.4fr 0.8fr 1fr;
+        gap: 3rem;
+    }
+
+    .site-footer__brand {
+        grid-column: span 1;
+    }
+}
+
+/* ==========================================================================
+   RESPONSIVE: Global Guards
+   ========================================================================== */
+
+/* Prevent horizontal scrolling on all devices */
+html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+/* Ensure images never exceed their container */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ==========================================================================
+   RESPONSIVE: Mobile Navigation Drawer
+   ========================================================================== */
+
+/* Drawer open state (controlled via JS by toggling this class on the drawer) */
+#mobile-nav-drawer.drawer-open {
+    transform: translateX(0);
+}
+
+/* Backdrop open state */
+#mobile-nav-backdrop.backdrop-open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ==========================================================================
+   RESPONSIVE: Bento Grid — single column on mobile
+   ========================================================================== */
+
+@media (max-width: 767px) {
+    .grid-bento, .bento-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Ensure bento children span full width on mobile */
+    .grid-bento > *, .bento-grid > * {
+        grid-column: span 1 !important;
+    }
+}
+
+/* ==========================================================================
+   RESPONSIVE: Small Mobile (320px – 480px)
+   ========================================================================== */
+
+@media (max-width: 480px) {
+    /* Scale down display-lg text for small screens */
+    .text-display-lg, .font-display-lg {
+        font-size: 28px !important;
+        line-height: 1.15 !important;
+    }
+
+    /* Scale down headline-lg text */
+    .text-headline-lg, .font-headline-lg {
+        font-size: 22px !important;
+        line-height: 1.25 !important;
+    }
+
+    /* Scale down headline-md text */
+    .text-headline-md, .font-headline-md {
+        font-size: 18px !important;
+        line-height: 1.3 !important;
+    }
+
+    /* Reduce card padding */
+    .area-card,
+    .service-card,
+    .conference-card,
+    .paper-hover {
+        padding: 1rem;
+    }
+
+    /* Conference featured card image */
+    .conference-card .h-64 {
+        height: 180px;
+    }
+}
+
+/* ==========================================================================
+   RESPONSIVE: Large Mobile (481px – 767px)
+   ========================================================================== */
+
+@media (min-width: 481px) and (max-width: 767px) {
+    .text-display-lg, .font-display-lg {
+        font-size: 34px !important;
+        line-height: 1.15 !important;
+    }
+
+    .text-headline-lg, .font-headline-lg {
+        font-size: 26px !important;
+        line-height: 1.25 !important;
+    }
+}
+
+/* ==========================================================================
+   RESPONSIVE: Tablet (768px – 1024px)
+   ========================================================================== */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .text-display-lg, .font-display-lg {
+        font-size: 38px !important;
+        line-height: 1.15 !important;
+    }
+}

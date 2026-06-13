@@ -34,7 +34,7 @@ $pub_url        = get_post_type_archive_link( 'publication' );
 
 <main class="min-h-screen">
     <!-- Hero Section -->
-    <header class="relative pt-24 min-h-[85vh] flex items-center overflow-hidden">
+    <header class="relative pt-20 md:pt-24 min-h-[60vh] md:min-h-[85vh] flex items-center overflow-hidden">
         <div class="absolute inset-0 z-0">
             <?php if ( $hero_image ) : ?>
                 <img alt="Ivri Research Laboratory" class="w-full h-full object-cover" src="<?php echo esc_url( $hero_image ); ?>"/>
@@ -43,13 +43,13 @@ $pub_url        = get_post_type_archive_link( 'publication' );
             <?php endif; ?>
             <div class="absolute inset-0 hero-gradient"></div>
         </div>
-        <div class="relative z-10 w-full max-w-container-max mx-auto px-margin-desktop">
+        <div class="relative z-10 w-full max-w-container-max mx-auto px-4 md:px-margin-desktop">
             <div class="max-w-2xl">
                 <div class="inline-flex items-center space-x-2 bg-primary/5 px-3 py-1 rounded-full border border-primary/10 mb-stack-md">
                     <span class="material-symbols-outlined text-[18px] text-primary">science</span>
                     <span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Global Intelligence Platform</span>
                 </div>
-                <h1 class="font-display-lg text-display-lg text-primary mb-stack-md">
+                <h1 class="font-display-lg text-headline-lg md:text-display-lg text-primary mb-stack-md">
                     <?php echo esc_html( $hero_title ); ?>
                 </h1>
                 <p class="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg max-w-xl">
@@ -69,7 +69,7 @@ $pub_url        = get_post_type_archive_link( 'publication' );
 
     <!-- Bento Grid Section -->
     <section class="py-stack-lg scientific-grid">
-        <div class="max-w-container-max mx-auto px-margin-desktop">
+        <div class="max-w-container-max mx-auto px-4 md:px-margin-desktop">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
                 <!-- About Us Card -->
                 <div class="md:col-span-8 bg-surface-container-lowest border border-outline-variant p-stack-lg flex flex-col justify-between group hover:border-primary transition-colors duration-300">
@@ -119,7 +119,7 @@ $pub_url        = get_post_type_archive_link( 'publication' );
                         <p class="font-body-md text-body-md text-secondary mb-stack-lg max-w-md">
                             Tailored analytical solutions for high-stakes environments. We provide the data, you make the decision.
                         </p>
-                        <div class="grid grid-cols-2 gap-stack-md">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-stack-md">
                             <a href="<?php echo esc_url( $services_url ?: home_url('/services/') ); ?>" class="p-stack-md bg-background border border-outline-variant hover:border-primary transition-all">
                                 <span class="material-symbols-outlined text-primary mb-2">monitoring</span>
                                 <div class="font-label-md text-label-md">Strategic Audits</div>
@@ -139,10 +139,10 @@ $pub_url        = get_post_type_archive_link( 'publication' );
     </section>
 
     <!-- Quote / Mission Break -->
-    <section class="py-24 bg-surface-container-lowest border-y border-outline-variant">
-        <div class="max-w-container-max mx-auto px-margin-desktop text-center">
+    <section class="py-12 md:py-24 bg-surface-container-lowest border-y border-outline-variant">
+        <div class="max-w-container-max mx-auto px-4 md:px-margin-desktop text-center">
             <span class="material-symbols-outlined text-primary text-[48px] opacity-20 mb-stack-md">format_quote</span>
-            <blockquote class="font-display-lg text-headline-lg text-primary max-w-4xl mx-auto mb-stack-lg italic">
+            <blockquote class="font-display-lg text-headline-md md:text-headline-lg text-primary max-w-4xl mx-auto mb-stack-lg italic">
                 <?php echo esc_html( $quote_text ); ?>
             </blockquote>
             <div class="flex items-center justify-center space-x-2">

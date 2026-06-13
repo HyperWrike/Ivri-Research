@@ -53,13 +53,13 @@ if ( ! $featured_post && ! empty( $all_posts ) ) {
 }
 ?>
 
-<main class="w-full max-w-container-max mx-auto px-margin-desktop py-stack-lg space-y-12 pt-28">
+<main class="w-full max-w-container-max mx-auto px-4 md:px-margin-desktop py-stack-lg space-y-12 pt-24 md:pt-28">
 
     <!-- Hero & Integrity Statement -->
     <section class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-end border-b border-outline-variant pb-stack-lg">
         <div class="lg:col-span-8 space-y-stack-md">
             <span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Scholarly Archive</span>
-            <h1 class="font-display-lg text-display-lg text-primary">Academic Publications</h1>
+            <h1 class="font-display-lg text-headline-lg md:text-display-lg text-primary">Academic Publications</h1>
             <p class="font-body-lg text-body-lg text-secondary max-w-2xl">
                 Our rigorous peer-review process ensures that every finding published by Ivri Research contributes meaningfully to the global scientific community.
             </p>
@@ -209,7 +209,7 @@ if ( ! $featured_post && ! empty( $all_posts ) ) {
     </section>
 
     <!-- Newsletter Subscribe -->
-    <section class="bg-primary text-on-primary p-margin-desktop flex flex-col md:flex-row items-center justify-between gap-stack-lg">
+    <section class="bg-primary text-on-primary p-4 md:p-margin-desktop flex flex-col md:flex-row items-center justify-between gap-stack-lg">
         <div class="space-y-stack-sm max-w-xl">
             <h2 class="font-headline-lg text-headline-lg">Stay Informed</h2>
             <p class="font-body-md opacity-80">Subscribe to receive monthly digests of our latest peer-reviewed publications and white papers directly in your inbox.</p>

@@ -4,7 +4,7 @@
  */
 get_header();
 ?>
-<main class="pt-24 min-h-screen max-w-container-max mx-auto px-margin-desktop py-12">
+<main class="pt-24 min-h-screen max-w-container-max mx-auto px-4 md:px-margin-desktop py-12">
     <h1 class="font-headline-lg text-headline-lg text-primary mb-stack-md">Latest Posts</h1>
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
     <article class="bg-surface-container-lowest border border-outline-variant p-stack-lg mb-gutter hover:border-primary transition-colors">

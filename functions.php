@@ -65,6 +65,43 @@ function ivri_research_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'ivri_research_scripts' );
 
+/**
+ * Retrieve global site settings stored on the front page via ACF.
+ *
+ * @return array
+ */
+function ivri_get_site_settings() {
+    static $settings = null;
+
+    if ( null !== $settings ) {
+        return $settings;
+    }
+
+    $front_id = get_option( 'page_on_front' );
+
+    $get = function( $key, $default ) use ( $front_id ) {
+        if ( ! $front_id || ! function_exists( 'get_field' ) ) {
+            return $default;
+        }
+        $value = get_field( $key, $front_id );
+        return ( $value !== null && $value !== '' ) ? $value : $default;
+    };
+
+    $settings = array(
+        'footer_description' => $get( 'footer_description', 'Advancing research innovation through rigorous scientific inquiry, cross-disciplinary collaboration, and the pursuit of intellectual clarity.' ),
+        'contact_email'      => $get( 'contact_email', 'info@ivriresearch.com' ),
+        'contact_phone'      => $get( 'contact_phone', '+91 86183 88731' ),
+        'contact_address'    => $get( 'contact_address', 'Zurich Headquarters, Switzerland' ),
+        'contact_hours'      => $get( 'contact_hours', 'Monday – Friday, 9:00 AM – 6:00 PM (IST)' ),
+        'social_facebook'    => $get( 'social_facebook', '#' ),
+        'social_linkedin'    => $get( 'social_linkedin', '#' ),
+        'social_instagram'   => $get( 'social_instagram', '#' ),
+        'social_youtube'     => $get( 'social_youtube', '#' ),
+    );
+
+    return $settings;
+}
+
 /* ==========================================================================
    3. Custom Post Types Registration
    ========================================================================== */
@@ -326,35 +363,49 @@ if ( function_exists('acf_add_local_field_group') ) {
                 'label' => 'Working Hours',
                 'name' => 'contact_hours',
                 'type' => 'text',
-                'default_value' => 'Monday – Friday: 9:00 AM to 6:00 PM (IST)',
+                'default_value' => 'Monday – Friday, 9:00 AM – 6:00 PM (IST)',
+            ),
+            // Footer
+            array(
+                'key' => 'field_footer_tab',
+                'label' => 'Footer Settings',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_footer_description',
+                'label' => 'Footer Description',
+                'name' => 'footer_description',
+                'type' => 'textarea',
+                'rows' => 3,
+                'default_value' => 'Advancing research innovation through rigorous scientific inquiry, cross-disciplinary collaboration, and the pursuit of intellectual clarity.',
             ),
             // Socials
-            array(
-                'key' => 'field_social_linkedin',
-                'label' => 'LinkedIn Link',
-                'name' => 'social_linkedin',
-                'type' => 'text',
-                'default_value' => '#',
-            ),
-            array(
-                'key' => 'field_social_twitter',
-                'label' => 'Twitter/X Link',
-                'name' => 'social_twitter',
-                'type' => 'text',
-                'default_value' => '#',
-            ),
             array(
                 'key' => 'field_social_facebook',
                 'label' => 'Facebook Link',
                 'name' => 'social_facebook',
-                'type' => 'text',
+                'type' => 'url',
+                'default_value' => '#',
+            ),
+            array(
+                'key' => 'field_social_linkedin',
+                'label' => 'LinkedIn Link',
+                'name' => 'social_linkedin',
+                'type' => 'url',
+                'default_value' => '#',
+            ),
+            array(
+                'key' => 'field_social_instagram',
+                'label' => 'Instagram Link',
+                'name' => 'social_instagram',
+                'type' => 'url',
                 'default_value' => '#',
             ),
             array(
                 'key' => 'field_social_youtube',
                 'label' => 'YouTube Link',
                 'name' => 'social_youtube',
-                'type' => 'text',
+                'type' => 'url',
                 'default_value' => '#',
             ),
         ),

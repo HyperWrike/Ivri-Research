@@ -50,12 +50,12 @@ $past_args = array(
 $past_query = new WP_Query( $past_args );
 ?>
 
-<main class="pt-32 pb-stack-lg px-margin-desktop max-w-container-max mx-auto">
+<main class="pt-24 md:pt-32 pb-stack-lg px-4 md:px-margin-desktop max-w-container-max mx-auto">
 
     <!-- Hero Section -->
-    <section class="mb-20">
+    <section class="mb-12 md:mb-20">
         <div class="max-w-3xl">
-            <h1 class="font-display-lg text-display-lg text-primary mb-stack-md">Global Knowledge Exchange</h1>
+            <h1 class="font-display-lg text-headline-lg md:text-display-lg text-primary mb-stack-md">Global Knowledge Exchange</h1>
             <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
                 Ivri Research convenes the world's leading minds to bridge the gap between theoretical science and corporate strategy. Explore our schedule of upcoming summits and historical proceedings.
             </p>
@@ -63,13 +63,13 @@ $past_query = new WP_Query( $past_args );
     </section>
 
     <!-- Upcoming Conferences -->
-    <section class="mb-24">
-        <div class="flex items-center justify-between mb-stack-lg">
-            <h2 class="font-headline-lg text-headline-lg text-primary flex items-center gap-2">
+    <section class="mb-12 md:mb-24">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-0 mb-stack-lg">
+            <h2 class="font-headline-lg text-headline-md md:text-headline-lg text-primary flex items-center gap-2 shrink-0">
                 <span class="material-symbols-outlined text-primary">event_upcoming</span>
                 Upcoming Events
             </h2>
-            <div class="h-px flex-grow mx-stack-lg bg-outline-variant"></div>
+            <div class="hidden sm:block h-px flex-grow mx-stack-lg bg-outline-variant"></div>
         </div>
 
         <?php if ( $upcoming_query->have_posts() ) : ?>
@@ -197,13 +197,13 @@ $past_query = new WP_Query( $past_args );
     </section>
 
     <!-- Conference Archive -->
-    <section class="mb-24">
-        <div class="flex items-center justify-between mb-stack-lg">
-            <h2 class="font-headline-lg text-headline-lg text-primary flex items-center gap-2">
+    <section class="mb-12 md:mb-24">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-0 mb-stack-lg">
+            <h2 class="font-headline-lg text-headline-md md:text-headline-lg text-primary flex items-center gap-2 shrink-0">
                 <span class="material-symbols-outlined text-primary">history</span>
                 Conference Archive
             </h2>
-            <div class="h-px flex-grow mx-stack-lg bg-outline-variant"></div>
+            <div class="hidden sm:block h-px flex-grow mx-stack-lg bg-outline-variant"></div>
         </div>
 
         <?php if ( $past_query->have_posts() ) : ?>
@@ -258,9 +258,9 @@ $past_query = new WP_Query( $past_args );
     </section>
 
     <!-- Call for Speakers CTA -->
-    <section class="rounded-2xl bg-primary-container p-12 text-center relative overflow-hidden">
+    <section class="rounded-2xl bg-primary-container p-6 md:p-12 text-center relative overflow-hidden">
         <div class="relative z-10 max-w-2xl mx-auto">
-            <h2 class="font-headline-lg text-headline-lg text-white mb-stack-md">Call for Speakers <?php echo date('Y') + 1; ?></h2>
+            <h2 class="font-headline-lg text-headline-md md:text-headline-lg text-white mb-stack-md">Call for Speakers <?php echo date('Y') + 1; ?></h2>
             <p class="text-on-primary-container font-body-lg text-body-lg mb-stack-lg">
                 Submit your research abstracts for our upcoming annual sessions. We prioritize novel methodology and cross-disciplinary impact.
             </p>

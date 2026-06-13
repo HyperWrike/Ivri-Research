@@ -20,11 +20,11 @@ $featured  = get_field( 'publication_featured' );
 $display_date = $pub_date ? date( 'F Y', strtotime( $pub_date ) ) : get_the_date( 'F Y' );
 ?>
 
-<main class="pt-28 pb-24">
-    <article class="max-w-4xl mx-auto px-margin-desktop">
+<main class="pt-24 md:pt-28 pb-12 md:pb-24">
+    <article class="max-w-4xl mx-auto px-4 md:px-margin-desktop">
 
         <!-- Breadcrumb -->
-        <nav class="flex items-center gap-2 font-label-sm text-label-sm text-secondary mb-8">
+        <nav class="flex flex-wrap items-center gap-2 font-label-sm text-label-sm text-secondary mb-8">
             <a href="<?php echo esc_url( home_url('/') ); ?>" class="hover:text-primary transition-colors">Home</a>
             <span class="material-symbols-outlined text-sm">chevron_right</span>
             <a href="<?php echo esc_url( $archive_url ); ?>" class="hover:text-primary transition-colors">Publications</a>
@@ -46,7 +46,7 @@ $display_date = $pub_date ? date( 'F Y', strtotime( $pub_date ) ) : get_the_date
                 <?php endif; ?>
             </div>
 
-            <h1 class="font-display-lg text-display-lg text-primary leading-tight mb-6">
+            <h1 class="font-display-lg text-headline-lg md:text-display-lg text-primary leading-tight mb-6">
                 <?php the_title(); ?>
             </h1>
 
@@ -84,7 +84,7 @@ $display_date = $pub_date ? date( 'F Y', strtotime( $pub_date ) ) : get_the_date
 
         <!-- Abstract -->
         <?php if ( $abstract ) : ?>
-        <section class="bg-surface-container-low border border-outline-variant p-8 mb-8">
+        <section class="bg-surface-container-low border border-outline-variant p-4 md:p-8 mb-8">
             <h2 class="font-label-md text-label-md text-secondary uppercase tracking-widest mb-4">Abstract</h2>
             <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed"><?php echo esc_html( $abstract ); ?></p>
         </section>

@@ -109,14 +109,14 @@
 
 <!-- Top Navigation Bar -->
 <nav class="bg-surface-container-lowest dark:bg-surface-container-high border-b border-outline-variant dark:border-outline fixed top-0 left-0 right-0 z-50">
-    <div class="flex justify-between items-center px-margin-desktop py-4 w-full max-w-container-max mx-auto">
+    <div class="flex justify-between items-center px-4 md:px-margin-desktop py-4 w-full max-w-container-max mx-auto">
         <!-- Logo / Brand Title -->
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed hover:opacity-90">
             Ivri Research
         </a>
 
         <!-- Desktop Navigation Items -->
-        <div class="hidden md:flex items-center space-x-stack-lg">
+        <div class="hidden lg:flex items-center space-x-stack-lg">
             <?php
             $locations = get_nav_menu_locations();
             $menu_items = array();
@@ -191,9 +191,79 @@
             ?>
         </div>
 
-        <!-- Contact Trigger Button -->
-        <button data-contact-trigger class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-md text-label-md hover:bg-opacity-90 transition-all duration-300">
-            Contact
-        </button>
+        <div class="flex items-center gap-3">
+            <!-- Contact Trigger Button (hidden on small mobile, shown from sm+) -->
+            <button data-contact-trigger class="hidden sm:inline-flex bg-primary text-on-primary px-6 py-2 rounded-lg font-label-md text-label-md hover:bg-opacity-90 transition-all duration-300">
+                Contact
+            </button>
+
+            <!-- Hamburger Menu Button (visible below lg) -->
+            <button id="mobile-menu-toggle" class="lg:hidden flex items-center justify-center w-10 h-10 text-primary hover:bg-surface-container rounded-lg transition-colors" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="material-symbols-outlined text-[28px] mobile-menu-icon">menu</span>
+                <span class="material-symbols-outlined text-[28px] mobile-close-icon hidden">close</span>
+            </button>
+        </div>
     </div>
 </nav>
+
+<!-- Mobile Navigation Drawer -->
+<div id="mobile-nav-backdrop" class="fixed inset-0 z-[55] bg-black/50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+<div id="mobile-nav-drawer" class="fixed top-0 right-0 z-[60] w-[280px] max-w-[85vw] h-full bg-surface-container-lowest dark:bg-surface-container-high shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+    <!-- Drawer Header -->
+    <div class="flex items-center justify-between px-6 py-4 border-b border-outline-variant">
+        <span class="font-headline-md text-[18px] font-bold text-primary dark:text-primary-fixed">Menu</span>
+        <button id="mobile-nav-close" class="flex items-center justify-center w-10 h-10 text-primary hover:bg-surface-container rounded-lg transition-colors" aria-label="Close navigation menu">
+            <span class="material-symbols-outlined text-[24px]">close</span>
+        </button>
+    </div>
+
+    <!-- Drawer Nav Links -->
+    <nav class="flex-1 overflow-y-auto py-4" aria-label="Mobile navigation">
+        <?php
+        // Re-use the same menu data for mobile
+        if ( ! empty( $menu_items ) ) {
+            $current_url = home_url( add_query_arg( array(), $wp->request ) );
+            foreach ( $menu_items as $item ) {
+                $is_active = ( trailingslashit( $item->url ) === trailingslashit( $current_url ) || $item->object_id == get_queried_object_id() );
+                $mobile_class = $is_active 
+                    ? 'mobile-nav-link flex items-center gap-3 px-6 py-3 text-primary dark:text-primary-fixed font-bold bg-surface-container-high/50 border-l-4 border-primary font-label-md text-[15px]' 
+                    : 'mobile-nav-link flex items-center gap-3 px-6 py-3 text-on-surface dark:text-secondary-fixed-dim hover:bg-surface-container hover:text-primary transition-colors font-label-md text-[15px] border-l-4 border-transparent';
+                
+                echo '<a class="' . esc_attr( $mobile_class ) . '" href="' . esc_url( $item->url ) . '">' . esc_html( $item->title ) . '</a>';
+            }
+        } else {
+            // Fallback: same static links
+            $mobile_pages = array(
+                array( 'home.html', 'Home', home_url( '/' ) ),
+                array( 'about-us.html', 'About Us', home_url( '/about-us/' ) ),
+                array( 'research-areas.html', 'Research Areas', home_url( '/research-areas/' ) ),
+                array( 'publications.html', 'Publications', home_url( '/publications/' ) ),
+                array( 'conferences.html', 'Conferences', home_url( '/conferences/' ) ),
+                array( 'services.html', 'Services', home_url( '/services/' ) ),
+            );
+            foreach ( $mobile_pages as $mp ) {
+                $is_active = false;
+                if ( is_front_page() && $mp[0] === 'home.html' ) $is_active = true;
+                elseif ( is_page_template( 'template-about.php' ) && $mp[0] === 'about-us.html' ) $is_active = true;
+                elseif ( is_page_template( 'template-research-areas.php' ) && $mp[0] === 'research-areas.html' ) $is_active = true;
+                elseif ( ( is_post_type_archive( 'publication' ) || is_singular( 'publication' ) ) && $mp[0] === 'publications.html' ) $is_active = true;
+                elseif ( ( is_post_type_archive( 'conference' ) || is_singular( 'conference' ) ) && $mp[0] === 'conferences.html' ) $is_active = true;
+                elseif ( is_page_template( 'template-services.php' ) && $mp[0] === 'services.html' ) $is_active = true;
+                
+                $mobile_class = $is_active 
+                    ? 'mobile-nav-link flex items-center gap-3 px-6 py-3 text-primary dark:text-primary-fixed font-bold bg-surface-container-high/50 border-l-4 border-primary font-label-md text-[15px]' 
+                    : 'mobile-nav-link flex items-center gap-3 px-6 py-3 text-on-surface dark:text-secondary-fixed-dim hover:bg-surface-container hover:text-primary transition-colors font-label-md text-[15px] border-l-4 border-transparent';
+                
+                echo '<a class="' . esc_attr( $mobile_class ) . '" href="' . esc_url( $mp[2] ) . '">' . esc_html( $mp[1] ) . '</a>';
+            }
+        }
+        ?>
+    </nav>
+
+    <!-- Drawer Footer: Contact Button (visible on small mobile where top Contact is hidden) -->
+    <div class="px-6 py-5 border-t border-outline-variant">
+        <button data-contact-trigger class="w-full bg-primary text-on-primary px-6 py-3 rounded-lg font-label-md text-label-md hover:bg-opacity-90 transition-all duration-300 text-center">
+            Contact Us
+        </button>
+    </div>
+</div>

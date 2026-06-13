@@ -100,4 +100,66 @@ document.addEventListener('DOMContentLoaded', () => {
             card.style.setProperty('--mouse-y', `${y}px`);
         });
     });
+
+    // 7. Mobile Navigation Drawer
+    const mobileToggle = document.getElementById('mobile-menu-toggle');
+    const mobileDrawer = document.getElementById('mobile-nav-drawer');
+    const mobileBackdrop = document.getElementById('mobile-nav-backdrop');
+    const mobileCloseBtn = document.getElementById('mobile-nav-close');
+    const menuIcon = mobileToggle ? mobileToggle.querySelector('.mobile-menu-icon') : null;
+    const closeIcon = mobileToggle ? mobileToggle.querySelector('.mobile-close-icon') : null;
+
+    function openMobileNav() {
+        if (!mobileDrawer || !mobileBackdrop) return;
+        mobileDrawer.classList.add('drawer-open');
+        mobileBackdrop.classList.add('backdrop-open');
+        document.body.classList.add('overflow-hidden');
+        if (menuIcon) menuIcon.classList.add('hidden');
+        if (closeIcon) closeIcon.classList.remove('hidden');
+        if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeMobileNav() {
+        if (!mobileDrawer || !mobileBackdrop) return;
+        mobileDrawer.classList.remove('drawer-open');
+        mobileBackdrop.classList.remove('backdrop-open');
+        document.body.classList.remove('overflow-hidden');
+        if (menuIcon) menuIcon.classList.remove('hidden');
+        if (closeIcon) closeIcon.classList.add('hidden');
+        if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'false');
+    }
+
+    // Toggle on hamburger button click
+    if (mobileToggle) {
+        mobileToggle.addEventListener('click', () => {
+            const isOpen = mobileDrawer && mobileDrawer.classList.contains('drawer-open');
+            if (isOpen) {
+                closeMobileNav();
+            } else {
+                openMobileNav();
+            }
+        });
+    }
+
+    // Close on close button inside drawer
+    if (mobileCloseBtn) {
+        mobileCloseBtn.addEventListener('click', closeMobileNav);
+    }
+
+    // Close on backdrop click (outside drawer)
+    if (mobileBackdrop) {
+        mobileBackdrop.addEventListener('click', closeMobileNav);
+    }
+
+    // Close on Escape key
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobileDrawer && mobileDrawer.classList.contains('drawer-open')) {
+            closeMobileNav();
+        }
+    });
+
+    // Close when a mobile nav link is clicked
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', closeMobileNav);
+    });
 });

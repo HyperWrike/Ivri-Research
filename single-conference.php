@@ -19,11 +19,11 @@ $status_label = $is_upcoming ? 'Upcoming' : 'Past Event';
 $status_class = $is_upcoming ? 'bg-emerald-100 text-emerald-800' : 'bg-surface-container-high text-secondary';
 ?>
 
-<main class="pt-28 pb-24">
-    <article class="max-w-5xl mx-auto px-margin-desktop">
+<main class="pt-24 md:pt-28 pb-12 md:pb-24">
+    <article class="max-w-5xl mx-auto px-4 md:px-margin-desktop">
 
         <!-- Breadcrumb -->
-        <nav class="flex items-center gap-2 font-label-sm text-label-sm text-secondary mb-8">
+        <nav class="flex flex-wrap items-center gap-2 font-label-sm text-label-sm text-secondary mb-8">
             <a href="<?php echo esc_url( home_url('/') ); ?>" class="hover:text-primary transition-colors">Home</a>
             <span class="material-symbols-outlined text-sm">chevron_right</span>
             <a href="<?php echo esc_url( $archive_url ); ?>" class="hover:text-primary transition-colors">Conferences</a>
@@ -33,7 +33,7 @@ $status_class = $is_upcoming ? 'bg-emerald-100 text-emerald-800' : 'bg-surface-c
 
         <!-- Hero Image -->
         <?php if ( has_post_thumbnail() ) : ?>
-        <figure class="mb-8 overflow-hidden rounded-xl border border-outline-variant h-72 lg:h-96 relative">
+        <figure class="mb-8 overflow-hidden rounded-xl border border-outline-variant h-48 sm:h-72 lg:h-96 relative">
             <?php the_post_thumbnail( 'large', array( 'class' => 'w-full h-full object-cover' ) ); ?>
             <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
             <div class="absolute bottom-6 left-6">
@@ -57,7 +57,7 @@ $status_class = $is_upcoming ? 'bg-emerald-100 text-emerald-800' : 'bg-surface-c
                 <?php endforeach; ?>
             </div>
 
-            <h1 class="font-display-lg text-display-lg text-primary leading-tight mb-6">
+            <h1 class="font-display-lg text-headline-lg md:text-display-lg text-primary leading-tight mb-6">
                 <?php the_title(); ?>
             </h1>
 
