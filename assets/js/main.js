@@ -11,26 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Navigation scroll hide/reveal header
-    let lastScroll = 0;
-    const header = document.querySelector('header');
-    if (header) {
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            if (currentScroll <= 0) {
-                header.classList.remove('-translate-y-full');
-                return;
-            }
-            if (currentScroll > lastScroll && currentScroll > 100) {
-                header.classList.add('-translate-y-full');
-            } else {
-                header.classList.remove('-translate-y-full');
-            }
-            lastScroll = currentScroll;
-        });
-    }
-
-    // 3. Entrance scroll animations
+    // 2. Entrance scroll animations
     const observerOptions = {
         threshold: 0.1
     };
@@ -56,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 4. About Us & general card group hover animations
+    // 3. About Us & general card group hover animations
     document.querySelectorAll('.group').forEach(card => {
         card.addEventListener('mouseenter', () => {
             // Apply slight translateY shift
@@ -72,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 5. Research Areas card icon micro-interactions
+    // 4. Research Areas card icon micro-interactions
     document.querySelectorAll('.area-card').forEach(card => {
         card.addEventListener('mouseenter', () => {
             const icon = card.querySelector('.material-symbols-outlined');
@@ -89,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 6. Services card mouse tracking configuration
+    // 5. Services card mouse tracking configuration
     document.querySelectorAll('.service-card').forEach(card => {
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
@@ -101,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 7. Mobile Navigation Drawer
+    // 6. Mobile Navigation Drawer
     const mobileToggle = document.getElementById('mobile-menu-toggle');
     const mobileDrawer = document.getElementById('mobile-nav-drawer');
     const mobileBackdrop = document.getElementById('mobile-nav-backdrop');

@@ -34,7 +34,7 @@ $pub_url        = get_post_type_archive_link( 'publication' );
 
 <main class="min-h-screen">
     <!-- Hero Section -->
-    <header class="relative pt-20 md:pt-24 min-h-[60vh] md:min-h-[85vh] flex items-center overflow-hidden">
+    <header class="hero-section relative pt-20 md:pt-24 min-h-[60vh] md:min-h-[85vh] flex items-center overflow-hidden">
         <div class="absolute inset-0 z-0">
             <?php if ( $hero_image ) : ?>
                 <img alt="Ivri Research Laboratory" class="w-full h-full object-cover" src="<?php echo esc_url( $hero_image ); ?>"/>
