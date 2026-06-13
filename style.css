@@ -1,0 +1,110 @@
+/*
+Theme Name: Ivri Research
+Theme URI: https://ivriresearch.com/
+Author: Antigravity
+Description: A premium, modern WordPress theme for Ivri Research, converted from static HTML mockups.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+Text Domain: ivri-research
+*/
+
+/* Core body resets and font rendering */
+body {
+    background-color: #fcf8fa;
+    color: #1b1b1d;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Material Symbols standard settings */
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+}
+
+/* Custom visual patterns */
+.scientific-grid {
+    background-image: radial-gradient(#e4e2e4 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+.custom-grid-pattern {
+    background-image: radial-gradient(#E2E8F0 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+.hero-gradient {
+    background: linear-gradient(to right, rgba(252, 248, 250, 1) 40%, rgba(252, 248, 250, 0) 100%);
+}
+
+.glass-header {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* Navigation indicators */
+.active-nav {
+    border-bottom: 2px solid #000000;
+}
+
+/* Specific utilities for highlights */
+.text-emerald { color: #10B981; }
+.bg-emerald { background-color: #10B981; }
+.border-emerald { border-color: #10B981; }
+
+/* Bento layout components */
+.grid-bento, .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+}
+
+/* Research Areas Card interactions */
+.area-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.area-card:hover {
+    border-color: #0F172A;
+    transform: translateY(-4px);
+}
+
+/* Publications card hover styling */
+.paper-hover {
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.paper-hover:hover {
+    border-color: #000000;
+    background-color: #ffffff;
+}
+
+/* Conferences card interactions */
+.conference-card {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+}
+
+.conference-card:hover {
+    transform: translateY(-4px);
+}
+
+/* Services card transitions */
+.service-card {
+    transition: all 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.1) rotate(-2deg);
+    color: #10B981;
+}
+
+/* Contact modal styling */
+.contact-modal-backdrop {
+    transition: opacity 0.3s ease-out;
+}
+
+.contact-modal-container {
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+}
