@@ -519,6 +519,58 @@ if ( function_exists('acf_add_local_field_group') ) {
         'title' => 'About Us Template Settings',
         'fields' => array(
             array(
+                'key' => 'field_about_content_tab',
+                'label' => 'Hero & Page Content',
+                'type' => 'tab',
+            ),
+            array(
+                'key' => 'field_about_page_hero_title',
+                'label' => 'Hero Title',
+                'name' => 'about_hero_title',
+                'type' => 'text',
+                'default_value' => 'Defining the Future through Rigorous Inquiry',
+            ),
+            array(
+                'key' => 'field_about_page_hero_desc',
+                'label' => 'Hero Description',
+                'name' => 'about_hero_description',
+                'type' => 'textarea',
+                'default_value' => 'Ivri Research is a global catalyst for intellectual advancement, bridging the gap between theoretical science and industrial application.',
+            ),
+            array(
+                'key' => 'field_about_page_mission_title',
+                'label' => 'Mission Title',
+                'name' => 'about_mission_title',
+                'type' => 'text',
+                'default_value' => 'Our Mission',
+            ),
+            array(
+                'key' => 'field_about_page_mission_desc',
+                'label' => 'Mission Description',
+                'name' => 'about_mission_description',
+                'type' => 'textarea',
+                'default_value' => 'Our mission is to accelerate the pace of innovation by fostering a global network of elite researchers. We provide the infrastructure, funding, and intellectual framework necessary to translate complex data into actionable strategies that solve the world\'s most pressing technical and social challenges.',
+            ),
+            array(
+                'key' => 'field_about_page_vision_title',
+                'label' => 'Vision Title',
+                'name' => 'about_vision_title',
+                'type' => 'text',
+                'default_value' => 'Our Vision',
+            ),
+            array(
+                'key' => 'field_about_page_vision_desc',
+                'label' => 'Vision Description',
+                'name' => 'about_vision_description',
+                'type' => 'textarea',
+                'default_value' => 'To become the global cornerstone of cross-disciplinary research, where groundbreaking discoveries serve as the foundation for a more resilient and technologically advanced society. We envision a world where every strategic decision is rooted in empirical truth and scientific excellence.',
+            ),
+            array(
+                'key' => 'field_about_timeline_tab',
+                'label' => 'Legacy Timeline',
+                'type' => 'tab',
+            ),
+            array(
                 'key' => 'field_about_timeline',
                 'label' => 'Legacy Timeline',
                 'name' => 'about_timeline',
@@ -607,6 +659,20 @@ if ( function_exists('acf_add_local_field_group') ) {
         'title' => 'Research Areas Settings',
         'fields' => array(
             array(
+                'key' => 'field_research_page_hero_title',
+                'label' => 'Hero Title',
+                'name' => 'research_hero_title',
+                'type' => 'text',
+                'default_value' => 'Advancing Human Understanding Through Multi-Disciplinary Rigor.',
+            ),
+            array(
+                'key' => 'field_research_page_hero_desc',
+                'label' => 'Hero Description',
+                'name' => 'research_hero_description',
+                'type' => 'textarea',
+                'default_value' => 'Ivri Research operates across seven strategic domains, combining empirical science with innovative technology to address the most pressing challenges of the 21st century.',
+            ),
+            array(
                 'key' => 'field_areas_list',
                 'label' => 'Research Domains',
                 'name' => 'areas_list',
@@ -679,6 +745,20 @@ if ( function_exists('acf_add_local_field_group') ) {
         'key' => 'group_services_page',
         'title' => 'Services Settings',
         'fields' => array(
+            array(
+                'key' => 'field_services_page_hero_title',
+                'label' => 'Hero Title',
+                'name' => 'services_hero_title',
+                'type' => 'text',
+                'default_value' => 'Specialized Services for Modern Research',
+            ),
+            array(
+                'key' => 'field_services_page_hero_desc',
+                'label' => 'Hero Description',
+                'name' => 'services_hero_description',
+                'type' => 'textarea',
+                'default_value' => 'We provide a robust infrastructure for academic and corporate scientific endeavors, ensuring rigorous standards and global reach through our specialized support pillars.',
+            ),
             array(
                 'key' => 'field_services_list',
                 'label' => 'Service Offerings',
