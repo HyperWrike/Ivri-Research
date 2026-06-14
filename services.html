@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Services | Ivri Research</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline": "#76777d",
+                        "secondary-fixed-dim": "#c4c7c9",
+                        "on-tertiary-container": "#75859d",
+                        "on-primary-container": "#7c839b",
+                        "secondary": "#5c5f61",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#b7c8e1",
+                        "primary": "#000000",
+                        "surface-tint": "#565e74",
+                        "surface-container-low": "#f6f3f5",
+                        "surface-bright": "#fcf8fa",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#45464d",
+                        "on-secondary-fixed": "#191c1e",
+                        "inverse-surface": "#303032",
+                        "inverse-on-surface": "#f3f0f2",
+                        "tertiary-fixed": "#d3e4fe",
+                        "surface-dim": "#dcd9db",
+                        "on-tertiary-fixed": "#0b1c30",
+                        "primary-fixed": "#dae2fd",
+                        "on-secondary-container": "#626567",
+                        "surface-container-high": "#eae7e9",
+                        "surface-container": "#f0edef",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#0b1c30",
+                        "outline-variant": "#c6c6cd",
+                        "surface-variant": "#e4e2e4",
+                        "background": "#fcf8fa",
+                        "secondary-fixed": "#e0e3e5",
+                        "on-secondary-fixed-variant": "#444749",
+                        "on-primary-fixed": "#131b2e",
+                        "on-primary-fixed-variant": "#3f465c",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#000000",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#1b1b1d",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#e0e3e5",
+                        "surface": "#fcf8fa",
+                        "primary-container": "#131b2e",
+                        "error": "#ba1a1a",
+                        "inverse-primary": "#bec6e0",
+                        "surface-container-highest": "#e4e2e4",
+                        "primary-fixed-dim": "#bec6e0",
+                        "on-tertiary-fixed-variant": "#38485d",
+                        "on-background": "#1b1b1d",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "margin-desktop": "48px",
+                        "stack-sm": "8px",
+                        "gutter": "24px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "margin-mobile": "16px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "label-md": ["Inter"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-sm": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-md": ["14px", {"lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "fontWeight": "500"}],
+                        "body-sm": ["14px", {"lineHeight": "1.5", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(-2deg);
+            color: #10B981; /* Primary Emerald from design guidance */
+        }
+        .glass-header {
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        .custom-grid-pattern {
+            background-image: radial-gradient(#E2E8F0 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+    </style>
+
+<style>
+#mobile-nav-drawer.drawer-open { transform: translateX(0); }
+#mobile-nav-backdrop.backdrop-open { opacity: 1; pointer-events: auto; }
+.mobile-nav-link.active { text-primary font-bold bg-surface-container-high/50 border-l-4 border-primary; }
+</style>
+
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/80 glass-header border-b border-outline-variant">
+<nav class="flex justify-between items-center px-margin-desktop py-4 w-full max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary">Ivri Research</div>
+<!-- Desktop Navigation -->
+<div class="hidden md:flex items-center gap-stack-lg">
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors" href="home.html">Home</a>
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors" href="about-us.html">About Us</a>
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors" href="research-areas.html">Research Areas</a>
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors" href="publications.html">Publications</a>
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors" href="conferences.html">Conferences</a>
+<a class="font-label-md text-label-md text-primary font-bold border-b-2 border-primary pb-1" href="services.html">Services</a>
+</div>
+            <button id="mobile-menu-toggle" class="flex items-center justify-center w-10 h-10 text-primary hover:bg-surface-container rounded-lg transition-colors" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="material-symbols-outlined text-[28px] mobile-menu-icon">menu</span>
+                <span class="material-symbols-outlined text-[28px] mobile-close-icon hidden">close</span>
+            </button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-label-md text-label-md hover:opacity-80 transition-opacity" data-contact-trigger>
+                Contact
+            </button>
+</nav>
+<!-- Mobile Navigation Drawer -->
+<div id="mobile-nav-backdrop" class="fixed inset-0 z-[55] bg-black/50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+<div id="mobile-nav-drawer" class="fixed top-0 right-0 z-[60] w-[280px] max-w-[85vw] h-full bg-surface-container-lowest dark:bg-surface-container-high shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+    <div class="flex items-center justify-between px-6 py-4 border-b border-outline-variant">
+        <span class="font-headline-md text-[18px] font-bold text-primary dark:text-primary-fixed">Menu</span>
+        <button id="mobile-nav-close" class="flex items-center justify-center w-10 h-10 text-primary hover:bg-surface-container rounded-lg transition-colors" aria-label="Close navigation menu">
+            <span class="material-symbols-outlined text-[24px]">close</span>
+        </button>
+    </div>
+    <nav class="flex-1 overflow-y-auto py-4" aria-label="Mobile navigation">
+        <a class="mobile-nav-link flex items-center gap-3 px-6 py-3 text-on-surface dark:text-secondary-fixed-dim hover:bg-surface-container hover:text-primary transition-colors font-label-md text-[15px] border-l-4 border-transparent" href="home.html">Home</a>
+        <a class="mobile-nav-link flex items-center gap-3 px-6 py-3 text-on-surface dark:text-secondary-fixed-dim hover:bg-surface-container hover:text-primary transition-colors font-label-md text-[15px] border-l-4 border-transparent" href="about-us.html">About Us</a>
+        <a class="mobile-nav-link flex items-center gap-3 px-6 py-3 text-on-surface dark:text-secondary-fixed-dim hover:bg-surface-container hover:text-primary transition-colors font-label-md text-[15px] border-l-4 border-transparent" href="research-areas.html">Research Areas</a>
+        <a class="mobile-nav-link flex items-center gap-3 px-6 py-3 text-on-surface dark:text-secondary-fixed-dim hover:bg-surface-container hover:text-primary transition-colors font-label-md text-[15px] border-l-4 border-transparent" href="publications.html">Publications</a>
+        <a class="mobile-nav-link flex items-center gap-3 px-6 py-3 text-on-surface dark:text-secondary-fixed-dim hover:bg-surface-container hover:text-primary transition-colors font-label-md text-[15px] border-l-4 border-transparent" href="conferences.html">Conferences</a>
+        <a class="mobile-nav-link flex items-center gap-3 px-6 py-3 text-on-surface dark:text-secondary-fixed-dim hover:bg-surface-container hover:text-primary transition-colors font-label-md text-[15px] border-l-4 border-transparent" href="services.html">Services</a>
+    </nav>
+    <div class="px-6 py-5 border-t border-outline-variant">
+        <button data-contact-trigger class="w-full bg-primary text-on-primary px-6 py-3 rounded-lg font-label-md text-label-md hover:bg-opacity-90 transition-all duration-300 text-center">
+            Contact Us
+        </button>
+    </div>
+</div>
+
+</header>
+<main class="pt-32 pb-stack-lg">
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-margin-desktop mb-24 relative">
+<div class="absolute -top-12 -left-12 w-64 h-64 bg-primary-fixed opacity-10 rounded-full blur-3xl"></div>
+<div class="relative z-10 max-w-2xl">
+<h1 class="font-display-lg text-display-lg mb-stack-md text-primary">
+                    Specialized Services for Modern Research
+                </h1>
+<p class="font-body-lg text-body-lg text-secondary leading-relaxed">
+                    We provide a robust infrastructure for academic and corporate scientific endeavors, ensuring rigorous standards and global reach through our specialized support pillars.
+                </p>
+</div>
+</section>
+<!-- Services 3x2 Grid -->
+<section class="max-w-container-max mx-auto px-margin-desktop custom-grid-pattern py-12">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Service 1: Research Consultation -->
+<div class="service-card group bg-surface-container-lowest border border-outline-variant p-stack-lg flex flex-col transition-all duration-300 hover:border-primary hover:shadow-xl">
+<div class="mb-stack-md">
+<span class="service-icon material-symbols-outlined text-4xl text-primary transition-transform duration-300" data-icon="query_stats">query_stats</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-stack-sm">Research Consultation</h3>
+<p class="font-body-md text-body-md text-secondary mb-stack-lg flex-grow">
+                        Strategic guidance on research methodology, statistical validation, and conceptual frameworks tailored to complex organizational objectives.
+                    </p>
+<ul class="space-y-2 border-t border-outline-variant pt-stack-md">
+<li class="flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+                            Methodological Audits
+                        </li>
+<li class="flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+                            Data Strategy Planning
+                        </li>
+</ul>
+</div>
+<!-- Service 2: International Collaborations -->
+<div class="service-card group bg-surface-container-lowest border border-outline-variant p-stack-lg flex flex-col transition-all duration-300 hover:border-primary hover:shadow-xl">
+<div class="mb-stack-md">
+<span class="service-icon material-symbols-outlined text-4xl text-primary transition-transform duration-300" data-icon="public">public</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-stack-sm">International Collaborations</h3>
+<p class="font-body-md text-body-md text-secondary mb-stack-lg flex-grow">
+                        Bridging geographic divides by connecting researchers with global institutions, facilitating cross-border knowledge exchange and joint ventures.
+                    </p>
+<ul class="space-y-2 border-t border-outline-variant pt-stack-md">
+<li class="flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+                            Global Network Access
+                        </li>
+<li class="flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+                            Partnership Agreements
+                        </li>
+</ul>
+</div>
+<!-- Service 3: Conferences -->
+<div class="service-card group bg-surface-container-lowest border border-outline-variant p-stack-lg flex flex-col transition-all duration-300 hover:border-primary hover:shadow-xl">
+<div class="mb-stack-md">
+<span class="service-icon material-symbols-outlined text-4xl text-primary transition-transform duration-300" data-icon="groups">groups</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-stack-sm">Conferences</h3>
+<p class="font-body-md text-body-md text-secondary mb-stack-lg flex-grow">
+                        Comprehensive management of scientific symposiums and academic conferences, from abstract management to venue logistics and publication.
+                    </p>
+<ul class="space-y-2 border-t border-outline-variant pt-stack-md">
+<li class="flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+                            Event Orchestration
+                        </li>
+<li class="flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+                            Speaker Management
+                        </li>
+</ul>
+</div>
+<!-- Service 4: Scholarly Publications -->
+<div class="service-card group bg-surface-container-lowest border border-outline-variant p-stack-lg flex flex-col transition-all duration-300 hover:border-primary hover:shadow-xl">
+<div class="mb-stack-md">
+<span class="service-icon material-symbols-outlined text-4xl text-primary transition-transform duration-300" data-icon="menu_book">menu_book</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-stack-sm">Scholarly Publications</h3>
+<p class="font-body-md text-body-md text-secondary mb-stack-lg flex-grow">
+                        End-to-end editorial support, including peer-review coordination, professional formatting, and indexing across major scientific databases.
+                    </p>
+<ul class="space-y-2 border-t border-outline-variant pt-stack-md">
+<li class="flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+                            Journal Placements
+                        </li>
+<li class="flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+                            DOI Registration
+                        </li>
+</ul>
+</div>
+<!-- Service 5: Capacity Building -->
+<div class="service-card group bg-surface-container-lowest border border-outline-variant p-stack-lg flex flex-col transition-all duration-300 hover:border-primary hover:shadow-xl">
+<div class="mb-stack-md">
+<span class="service-icon material-symbols-outlined text-4xl text-primary transition-transform duration-300" data-icon="model_training">model_training</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-stack-sm">Capacity Building</h3>
+<p class="font-body-md text-body-md text-secondary mb-stack-lg flex-grow">
+                        Empowering the next generation of scholars through intensive workshops, grant-writing seminars, and technical training modules.
+                    </p>
+<ul class="space-y-2 border-t border-outline-variant pt-stack-md">
+<li class="flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+                            Skill Development
+                        </li>
+<li class="flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+                            Mentorship Programs
+                        </li>
+</ul>
+</div>
+<!-- Service 6: Project Management -->
+<div class="service-card group bg-surface-container-lowest border border-outline-variant p-stack-lg flex flex-col transition-all duration-300 hover:border-primary hover:shadow-xl">
+<div class="mb-stack-md">
+<span class="service-icon material-symbols-outlined text-4xl text-primary transition-transform duration-300" data-icon="account_tree">account_tree</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-stack-sm">Project Management</h3>
+<p class="font-body-md text-body-md text-secondary mb-stack-lg flex-grow">
+                        Rigorous administrative oversight for large-scale research projects, ensuring milestones are met on time and within resource parameters.
+                    </p>
+<ul class="space-y-2 border-t border-outline-variant pt-stack-md">
+<li class="flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+                            Milestone Tracking
+                        </li>
+<li class="flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+                            Resource Optimization
+                        </li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Secondary CTA/Information Section -->
+<section class="max-w-container-max mx-auto px-margin-desktop mt-24">
+<div class="bg-surface-container p-stack-lg rounded-xl flex flex-col md:flex-row items-center gap-gutter">
+<div class="flex-1">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-stack-sm">Need a bespoke research solution?</h2>
+<p class="font-body-md text-body-md text-secondary">Our team specializes in creating custom workflows for multi-disciplinary initiatives that require specific scientific rigor.</p>
+</div>
+<div class="flex gap-4">
+<button class="px-8 py-3 bg-primary text-on-primary font-label-md text-label-md rounded-lg hover:opacity-90 transition-opacity" data-contact-trigger>Request Consultation</button>
+<a href="#" class="px-8 py-3 border border-primary text-primary font-label-md text-label-md rounded-lg hover:bg-surface-container-high transition-colors inline-block text-center">View Case Studies</a>
+</div>
+</div>
+</section>
+<!-- Illustration/Atmosphere Section -->
+<section class="w-full mt-24 h-[400px] relative overflow-hidden bg-primary-container">
+
+<div class="absolute inset-0 flex items-center justify-center text-center p-margin-desktop">
+<div class="max-w-xl">
+<h3 class="font-display-lg text-headline-lg text-surface-container-lowest mb-stack-md">Advancing the Frontiers of Scientific Inquiry</h3>
+<div class="flex justify-center gap-4 text-surface-container-lowest/80 font-label-md text-label-md uppercase tracking-widest">
+<span>Precision</span>
+<span class="opacity-50">/</span>
+<span>Integrity</span>
+<span class="opacity-50">/</span>
+<span>Global Impact</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-dim border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-stack-lg w-full max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary mb-stack-md md:mb-0">Ivri Research</div>
+<div class="flex flex-col items-center md:items-end gap-stack-sm">
+<div class="flex gap-stack-lg mb-2">
+<a class="font-label-sm text-label-sm text-secondary hover:text-primary transition-colors" href="#">Terms</a>
+<a class="font-label-sm text-label-sm text-secondary hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="font-label-sm text-label-sm text-secondary hover:text-primary transition-colors" href="#">Publication Ethics</a>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface/60">© 2024 Ivri Research. All rights reserved.</p>
+</div>
+</div>
+</footer>
+<script>
+        // Subtle micro-interactions for the cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Simple scroll reveal for header
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            const header = document.querySelector('header');
+            
+            if (currentScroll <= 0) {
+                header.classList.remove('-translate-y-full');
+                return;
+            }
+            
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                header.classList.add('-translate-y-full');
+            } else {
+                header.classList.remove('-translate-y-full');
+            }
+            lastScroll = currentScroll;
+        });
+    </script>
+
+<!-- Contact Modal -->
+<div id="contact-modal" class="hidden fixed inset-0 z-[100] items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300">
+    <div class="absolute inset-0 bg-on-surface/50 backdrop-blur-sm transition-opacity"></div>
+    <div id="contact-modal-container" class="relative w-full max-w-2xl bg-surface-container-lowest rounded-2xl shadow-2xl opacity-0 scale-95 transition-all duration-300 max-h-[90vh] overflow-y-auto">
+        <div class="p-6 sm:p-8">
+            <div class="flex justify-between items-start mb-6">
+                <div>
+                    <h2 class="font-headline-md text-headline-md text-primary mb-2">Request Consultation</h2>
+                    <p class="font-body-sm text-body-sm text-secondary">Connect with our research strategists to discuss your specific analytical needs.</p>
+                </div>
+                <button id="contact-modal-close" class="text-secondary hover:text-primary transition-colors p-2 -mr-2">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            
+            <div id="form-response" class="hidden"></div>
+            
+            <form id="contact-form" class="space-y-4">
+                <input type="hidden" id="contact-nonce" value="html-mockup">
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="space-y-1">
+                        <label for="contact-name" class="font-label-sm text-label-sm text-on-surface-variant">Full Name *</label>
+                        <input type="text" id="contact-name" class="w-full bg-surface-container-low border border-outline-variant rounded-lg px-4 py-2.5 font-body-sm text-body-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" required>
+                    </div>
+                    <div class="space-y-1">
+                        <label for="contact-email" class="font-label-sm text-label-sm text-on-surface-variant">Work Email *</label>
+                        <input type="email" id="contact-email" class="w-full bg-surface-container-low border border-outline-variant rounded-lg px-4 py-2.5 font-body-sm text-body-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" required>
+                    </div>
+                </div>
+                
+                <div class="space-y-1">
+                    <label for="contact-subject" class="font-label-sm text-label-sm text-on-surface-variant">Subject / Department *</label>
+                    <select id="contact-subject" class="w-full bg-surface-container-low border border-outline-variant rounded-lg px-4 py-2.5 font-body-sm text-body-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" required>
+                        <option value="">Select an area of interest</option>
+                        <option value="Biotechnology">Biotechnology</option>
+                        <option value="Quantum Systems">Quantum Systems</option>
+                        <option value="Materials Science">Materials Science</option>
+                        <option value="Strategic Audit">Strategic Audit</option>
+                        <option value="Other">Other / General Inquiry</option>
+                    </select>
+                </div>
+                
+                <div class="space-y-1">
+                    <label for="contact-message" class="font-label-sm text-label-sm text-on-surface-variant">Message *</label>
+                    <textarea id="contact-message" rows="4" class="w-full bg-surface-container-low border border-outline-variant rounded-lg px-4 py-2.5 font-body-sm text-body-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-y" required></textarea>
+                </div>
+                
+                <div class="pt-4 flex justify-end">
+                    <button type="submit" id="contact-submit-btn" class="bg-primary text-on-primary px-8 py-3 rounded-lg font-label-md text-label-md hover:bg-opacity-90 transition-all duration-300 w-full sm:w-auto">
+                        Send Message
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="assets/js/contact-modal.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var toggle = document.getElementById('mobile-menu-toggle');
+    var drawer = document.getElementById('mobile-nav-drawer');
+    var backdrop = document.getElementById('mobile-nav-backdrop');
+    var closeBtn = document.getElementById('mobile-nav-close');
+    
+    if (!toggle || !drawer || !backdrop) return;
+    
+    function openNav() {
+        drawer.classList.add('drawer-open');
+        backdrop.classList.add('backdrop-open');
+        document.body.classList.add('overflow-hidden');
+        toggle.setAttribute('aria-expanded', 'true');
+    }
+    
+    function closeNav() {
+        drawer.classList.remove('drawer-open');
+        backdrop.classList.remove('backdrop-open');
+        document.body.classList.remove('overflow-hidden');
+        toggle.setAttribute('aria-expanded', 'false');
+    }
+    
+    toggle.addEventListener('click', function() {
+        if (drawer.classList.contains('drawer-open')) closeNav();
+        else openNav();
+    });
+    
+    if (closeBtn) closeBtn.addEventListener('click', closeNav);
+    backdrop.addEventListener('click', closeNav);
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && drawer.classList.contains('drawer-open')) closeNav();
+    });
+    
+    document.querySelectorAll('.mobile-nav-link').forEach(function(link) {
+        link.addEventListener('click', closeNav);
+    });
+});
+</script>
+
+</body>
+</html>

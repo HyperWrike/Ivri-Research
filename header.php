@@ -116,7 +116,7 @@
         </a>
 
         <!-- Desktop Navigation Items -->
-        <div class="hidden lg:flex items-center space-x-stack-lg">
+        <div class="hidden xl:flex items-center space-x-stack-lg">
             <?php
             $locations = get_nav_menu_locations();
             $menu_items = array();
@@ -198,7 +198,7 @@
             </button>
 
             <!-- Hamburger Menu Button (visible below lg) -->
-            <button id="mobile-menu-toggle" class="lg:hidden flex items-center justify-center w-10 h-10 text-primary hover:bg-surface-container rounded-lg transition-colors" aria-label="Toggle navigation menu" aria-expanded="false">
+            <button id="mobile-menu-toggle" class="flex items-center justify-center w-10 h-10 text-primary hover:bg-surface-container rounded-lg transition-colors" aria-label="Toggle navigation menu" aria-expanded="false">
                 <span class="material-symbols-outlined text-[28px] mobile-menu-icon">menu</span>
                 <span class="material-symbols-outlined text-[28px] mobile-close-icon hidden">close</span>
             </button>

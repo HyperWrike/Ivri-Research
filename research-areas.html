@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline": "#76777d",
+            "secondary-fixed-dim": "#c4c7c9",
+            "on-tertiary-container": "#75859d",
+            "on-primary-container": "#7c839b",
+            "secondary": "#5c5f61",
+            "error-container": "#ffdad6",
+            "tertiary-fixed-dim": "#b7c8e1",
+            "primary": "#000000",
+            "surface-tint": "#565e74",
+            "surface-container-low": "#f6f3f5",
+            "surface-bright": "#fcf8fa",
+            "on-error": "#ffffff",
+            "on-surface-variant": "#45464d",
+            "on-secondary-fixed": "#191c1e",
+            "inverse-surface": "#303032",
+            "inverse-on-surface": "#f3f0f2",
+            "tertiary-fixed": "#d3e4fe",
+            "surface-dim": "#dcd9db",
+            "on-tertiary-fixed": "#0b1c30",
+            "primary-fixed": "#dae2fd",
+            "on-secondary-container": "#626567",
+            "surface-container-high": "#eae7e9",
+            "surface-container": "#f0edef",
+            "on-tertiary": "#ffffff",
+            "tertiary-container": "#0b1c30",
+            "outline-variant": "#c6c6cd",
+            "surface-variant": "#e4e2e4",
+            "background": "#fcf8fa",
+            "secondary-fixed": "#e0e3e5",
+            "on-secondary-fixed-variant": "#444749",
+            "on-primary-fixed": "#131b2e",
+            "on-primary-fixed-variant": "#3f465c",
+            "on-secondary": "#ffffff",
+            "tertiary": "#000000",
+            "surface-container-lowest": "#ffffff",
+            "on-surface": "#1b1b1d",
+            "on-primary": "#ffffff",
+            "secondary-container": "#e0e3e5",
+            "surface": "#fcf8fa",
+            "primary-container": "#131b2e",
+            "error": "#ba1a1a",
+            "inverse-primary": "#bec6e0",
+            "surface-container-highest": "#e4e2e4",
+            "primary-fixed-dim": "#bec6e0",
+            "on-tertiary-fixed-variant": "#38485d",
+            "on-background": "#1b1b1d",
+            "on-error-container": "#93000a",
+            "brand-emerald": "#10B981",
+            "brand-navy": "#0F172A"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          "spacing": {
+            "unit": "4px",
+            "margin-desktop": "48px",
+            "stack-sm": "8px",
+            "gutter": "24px",
+            "stack-md": "16px",
+            "stack-lg": "32px",
+            "margin-mobile": "16px",
+            "container-max": "1280px"
+          },
+          "fontFamily": {
+            "label-md": ["Inter"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Inter"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Inter"],
+            "label-sm": ["Inter"],
+            "body-sm": ["Inter"]
+          },
+          "fontSize": {
+            "label-md": ["14px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
+            "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-lg-mobile": ["24px", { "lineHeight": "1.2", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+            "label-sm": ["12px", { "lineHeight": "1", "fontWeight": "500" }],
+            "body-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      background-color: #fcf8fa;
+      color: #1b1b1d;
+    }
+    .grid-bento {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 24px;
+    }
+    .area-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .area-card:hover {
+      border-color: #0F172A;
+      transform: translateY(-4px);
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+
+<style>
+#mobile-nav-drawer.drawer-open { transform: translateX(0); }
+#mobile-nav-backdrop.backdrop-open { opacity: 1; pointer-events: auto; }
+.mobile-nav-link.active { text-primary font-bold bg-surface-container-high/50 border-l-4 border-primary; }
+</style>
+
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest dark:bg-surface-container-high border-b border-outline-variant dark:border-outline sticky top-0 z-50">
+<nav class="flex justify-between items-center px-margin-desktop py-4 w-full max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">
+        Ivri Research
+      </div>
+<div class="hidden lg:flex items-center space-x-stack-lg">
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors font-label-md text-label-md" href="home.html">Home</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors font-label-md text-label-md" href="about-us.html">About Us</a>
+<a class="text-primary dark:text-primary-fixed font-bold border-b-2 border-primary dark:border-primary-fixed pb-1 font-label-md text-label-md" href="research-areas.html">Research Areas</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors font-label-md text-label-md" href="publications.html">Publications</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors font-label-md text-label-md" href="conferences.html">Conferences</a>
+<a class="text-secondary dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors font-label-md text-label-md" href="services.html">Services</a>
+</div>
+<button class="bg-brand-emerald text-white px-stack-lg py-2 rounded font-label-md text-label-md hover:bg-emerald-600 transition-all duration-300">
+        Contact
+      </button>
+</nav>
+<!-- Mobile Navigation Drawer -->
+<div id="mobile-nav-backdrop" class="fixed inset-0 z-[55] bg-black/50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+<div id="mobile-nav-drawer" class="fixed top-0 right-0 z-[60] w-[280px] max-w-[85vw] h-full bg-surface-container-lowest dark:bg-surface-container-high shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+    <div class="flex items-center justify-between px-6 py-4 border-b border-outline-variant">
+        <span class="font-headline-md text-[18px] font-bold text-primary dark:text-primary-fixed">Menu</span>
+        <button id="mobile-nav-close" class="flex items-center justify-center w-10 h-10 text-primary hover:bg-surface-container rounded-lg transition-colors" aria-label="Close navigation menu">
+            <span class="material-symbols-outlined text-[24px]">close</span>
+        </button>
+    </div>
+    <nav class="flex-1 overflow-y-auto py-4" aria-label="Mobile navigation">
+        <a class="mobile-nav-link flex items-center gap-3 px-6 py-3 text-on-surface dark:text-secondary-fixed-dim hover:bg-surface-container hover:text-primary transition-colors font-label-md text-[15px] border-l-4 border-transparent" href="home.html">Home</a>
+        <a class="mobile-nav-link flex items-center gap-3 px-6 py-3 text-on-surface dark:text-secondary-fixed-dim hover:bg-surface-container hover:text-primary transition-colors font-label-md text-[15px] border-l-4 border-transparent" href="about-us.html">About Us</a>
+        <a class="mobile-nav-link flex items-center gap-3 px-6 py-3 text-on-surface dark:text-secondary-fixed-dim hover:bg-surface-container hover:text-primary transition-colors font-label-md text-[15px] border-l-4 border-transparent" href="research-areas.html">Research Areas</a>
+        <a class="mobile-nav-link flex items-center gap-3 px-6 py-3 text-on-surface dark:text-secondary-fixed-dim hover:bg-surface-container hover:text-primary transition-colors font-label-md text-[15px] border-l-4 border-transparent" href="publications.html">Publications</a>
+        <a class="mobile-nav-link flex items-center gap-3 px-6 py-3 text-on-surface dark:text-secondary-fixed-dim hover:bg-surface-container hover:text-primary transition-colors font-label-md text-[15px] border-l-4 border-transparent" href="conferences.html">Conferences</a>
+        <a class="mobile-nav-link flex items-center gap-3 px-6 py-3 text-on-surface dark:text-secondary-fixed-dim hover:bg-surface-container hover:text-primary transition-colors font-label-md text-[15px] border-l-4 border-transparent" href="services.html">Services</a>
+    </nav>
+    <div class="px-6 py-5 border-t border-outline-variant">
+        <button data-contact-trigger class="w-full bg-primary text-on-primary px-6 py-3 rounded-lg font-label-md text-label-md hover:bg-opacity-90 transition-all duration-300 text-center">
+            Contact Us
+        </button>
+    </div>
+</div>
+
+</header>
+<main class="w-full max-w-container-max mx-auto px-margin-desktop py-12 md:py-24">
+<!-- Hero Section -->
+<section class="mb-20 max-w-3xl">
+<h1 class="font-display-lg text-display-lg text-brand-navy mb-stack-md">
+        Advancing Human Understanding Through Multi-Disciplinary Rigor.
+      </h1>
+<p class="font-body-lg text-body-lg text-secondary leading-relaxed">
+        Ivri Research operates across seven strategic domains, combining empirical science with innovative technology to address the most pressing challenges of the 21st century.
+      </p>
+</section>
+<!-- Research Areas Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Life Sciences - Large Feature -->
+<div class="md:col-span-8 area-card p-stack-lg flex flex-col justify-between min-h-[400px]">
+<div>
+<div class="flex items-center justify-between mb-stack-md">
+<span class="material-symbols-outlined text-brand-emerald text-4xl" data-icon="biotech">biotech</span>
+<span class="bg-surface-container text-brand-navy px-3 py-1 text-label-sm font-label-sm rounded-full">Core Domain</span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-brand-navy mb-stack-sm">Life Sciences</h3>
+<p class="font-body-md text-body-md text-secondary max-w-xl">
+            Our Life Sciences division investigates the fundamental mechanisms of biological systems. From genomic sequencing to neuro-pathology research, we provide the foundational data required for next-generation medical breakthroughs and pharmaceutical developments.
+          </p>
+</div>
+<div class="mt-8 overflow-hidden rounded-lg h-48 bg-slate-100">
+<img alt="Microscope view" class="w-full h-full object-cover" data-alt="A highly detailed close-up of a high-tech laboratory microscope focusing on a vibrant green cellular structure. The background is a clean, sterile laboratory environment with soft, diffused white lighting and deep navy accents on scientific equipment. The visual style is crisp and professional, emphasizing scientific precision and the brand's sophisticated corporate minimalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiFr91LJX3iJplaMW85fd6n6zeJ6sBYk3kQDIUC-y-4zi-Qi0ZiiFFFmORblakLrsP8Geo8XTm5FgGGDULJ2QL4ju9u16RCVAREWxcLamNGGFdQ37IZfLgXjIXATogXbcsk4lIa4q7MKE7oR7d0gXALC5565kY_NJqAjAgqsFGHgoFztN1-Z4sD8UHZvcF31RcmUrTrrJCy8T8tZz0hlPYVX2U0XYrfKnCFnj9QIidl8n2VaikMYUw4K1ao3QkY4mRjrcwAsVJT0U"/>
+</div>
+</div>
+<!-- AI & Tech - Vertical Feature -->
+<div class="md:col-span-4 area-card p-stack-lg flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-brand-emerald text-4xl mb-stack-md" data-icon="memory">memory</span>
+<h3 class="font-headline-lg text-headline-lg text-brand-navy mb-stack-sm">AI &amp; Tech</h3>
+<p class="font-body-md text-body-md text-secondary">
+            Developing ethical AI frameworks and high-performance computing models for predictive analytics.
+          </p>
+<ul class="mt-stack-md space-y-2">
+<li class="flex items-center text-label-sm font-label-sm text-brand-navy">
+<span class="material-symbols-outlined text-xs mr-2" data-icon="check_circle">check_circle</span> Neural Networks
+            </li>
+<li class="flex items-center text-label-sm font-label-sm text-brand-navy">
+<span class="material-symbols-outlined text-xs mr-2" data-icon="check_circle">check_circle</span> Ethical Algorithms
+            </li>
+</ul>
+</div>
+<div class="mt-8 border-t border-outline-variant pt-4">
+<button class="flex items-center text-brand-emerald font-label-md text-label-md hover:underline">
+            View Research <span class="material-symbols-outlined ml-1" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Environmental Science -->
+<div class="md:col-span-4 area-card p-stack-lg hover:bg-slate-50">
+<span class="material-symbols-outlined text-brand-emerald text-3xl mb-stack-md" data-icon="eco">eco</span>
+<h3 class="font-headline-md text-headline-md text-brand-navy mb-stack-sm">Environmental Science</h3>
+<p class="font-body-sm text-body-sm text-secondary">
+          Quantitative analysis of climate shifts, carbon sequestration strategies, and ecosystem restoration modeling to ensure sustainable global futures.
+        </p>
+</div>
+<!-- Engineering -->
+<div class="md:col-span-4 area-card p-stack-lg hover:bg-slate-50">
+<span class="material-symbols-outlined text-brand-emerald text-3xl mb-stack-md" data-icon="architecture">architecture</span>
+<h3 class="font-headline-md text-headline-md text-brand-navy mb-stack-sm">Engineering</h3>
+<p class="font-body-sm text-body-sm text-secondary">
+          Materials science and structural engineering research focusing on resilient infrastructure and aerospace component optimization.
+        </p>
+</div>
+<!-- Social Sciences -->
+<div class="md:col-span-4 area-card p-stack-lg hover:bg-slate-50">
+<span class="material-symbols-outlined text-brand-emerald text-3xl mb-stack-md" data-icon="groups">groups</span>
+<h3 class="font-headline-md text-headline-md text-brand-navy mb-stack-sm">Social Sciences</h3>
+<p class="font-body-sm text-body-sm text-secondary">
+          Anthropological and economic data studies exploring urbanization, migration patterns, and the socio-economic impact of digital transformation.
+        </p>
+</div>
+<!-- Agriculture -->
+<div class="md:col-span-6 area-card p-stack-lg flex gap-gutter items-center">
+<div class="flex-1">
+<span class="material-symbols-outlined text-brand-emerald text-4xl mb-stack-md" data-icon="potted_plant">potted_plant</span>
+<h3 class="font-headline-md text-headline-md text-brand-navy mb-stack-sm">Agriculture</h3>
+<p class="font-body-sm text-body-sm text-secondary">
+            Precision agtech and soil microbiome research to enhance crop yields and resource efficiency in challenging climates.
+          </p>
+</div>
+<div class="hidden sm:block w-32 h-32 flex-shrink-0">
+<img alt="Plant growth" class="w-full h-full object-cover rounded-full border-4 border-white shadow-sm" data-alt="A crisp, high-resolution photograph of a single vibrant green sprout emerging from rich, dark soil in a controlled laboratory environment. The lighting is bright and clear, adhering to a minimalist corporate aesthetic with deep navy shadows and clean white backgrounds. The image evokes themes of growth, sustainability, and scientific precision within the agricultural research sector." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDLzqYdxsK3T7CXI4zoFcOer9OsnYStvnC6WuIOF3dd_RAt8ZmktB9gk4seSFbBicvPF1j73SSzzMbOdL0wvs17lwyAw6QBb0-mSvbNRvn30Xd6v-rfWuy_GE7S7wx1WRaaARxLh3hpwY8gsgDU46NBfCuQJRCFFwavAHs9IT3yyXPev_yPsh--ChQx8-2cix78m6w8tTX1YbWLfwopcjrujy1ifcbr7A2wFTRh1wvZceLsUGFkcYZdujS7REE-lzGqAjaJ-KLplk"/>
+</div>
+</div>
+<!-- Education -->
+<div class="md:col-span-6 area-card p-stack-lg flex gap-gutter items-center">
+<div class="flex-1">
+<span class="material-symbols-outlined text-brand-emerald text-4xl mb-stack-md" data-icon="school">school</span>
+<h3 class="font-headline-md text-headline-md text-brand-navy mb-stack-sm">Education</h3>
+<p class="font-body-sm text-body-sm text-secondary">
+            Cognitive psychology and pedagogical research aimed at optimizing knowledge retention and digital learning interface accessibility.
+          </p>
+</div>
+<div class="hidden sm:block w-32 h-32 flex-shrink-0">
+<img alt="Library" class="w-full h-full object-cover rounded-full border-4 border-white shadow-sm" data-alt="An artistic, minimalist architectural shot of a modern university library interior. The scene features clean white lines, expansive glass panels, and deep navy shelving. The lighting is soft and natural, emphasizing a serene, intellectual environment. The composition focuses on a sophisticated, high-whitespace aesthetic that communicates the authoritative and scholarly nature of educational research." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMxM3wguDcK6GEGLaaoYmrr18ugrRb0Odwql5OtP7VUT-rBmpuJ7_oDLuQe-BE73PkkT0txWP9CEPa9Xww5llbqDaNao3XP-P2rShOjPcX4g7WBxduFQqRazz2XKujmdZG1-1MQb8dpFGB9Gd8RssWWu4rA6BfL_gQqG1n37pF7B6IyGn6w8KCAngvKkwSx4jQoEliE32Yb350H4Gc8RAAwpiaM_2Ep1MFlR2-OflqwV2rrFmzJ_CFL3g1NH7veNgUzDbXYpJIF-0"/>
+</div>
+</div>
+</div>
+<!-- Call to Action Section -->
+<section class="mt-24 bg-brand-navy p-stack-lg md:p-16 rounded-xl relative overflow-hidden">
+<div class="relative z-10 max-w-2xl">
+<h2 class="font-headline-lg text-headline-lg text-white mb-stack-md">Ready to collaborate on pioneering research?</h2>
+<p class="font-body-md text-body-md text-secondary-fixed-dim mb-stack-lg">
+          We partner with academic institutions, governments, and private enterprises to turn rigorous research into actionable strategy.
+        </p>
+<div class="flex gap-stack-md">
+<button class="bg-brand-emerald text-white px-stack-lg py-3 rounded font-label-md text-label-md hover:bg-emerald-600 transition-all">
+            Contact Research Lead
+          </button>
+<button class="border border-white/20 text-white px-stack-lg py-3 rounded font-label-md text-label-md hover:bg-white/10 transition-all">
+            Download Prospectus
+          </button>
+</div>
+</div>
+<!-- Background Graphic Effect -->
+<div class="absolute right-0 top-0 w-1/3 h-full opacity-10">
+<span class="material-symbols-outlined text-[300px] leading-none select-none pointer-events-none" data-icon="insights">insights</span>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-dim border-t border-outline-variant dark:border-outline mt-24">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-stack-lg w-full max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed mb-stack-md md:mb-0">
+        Ivri Research
+      </div>
+<div class="flex flex-col md:flex-row items-center gap-stack-lg">
+<div class="flex gap-stack-md font-label-sm text-label-sm text-on-surface dark:text-on-surface-variant">
+<a class="hover:text-primary dark:hover:text-primary-fixed transition-all hover:underline" href="#">Terms</a>
+<a class="hover:text-primary dark:hover:text-primary-fixed transition-all hover:underline" href="#">Privacy</a>
+<a class="hover:text-primary dark:hover:text-primary-fixed transition-all hover:underline" href="#">Publication Ethics</a>
+</div>
+<p class="font-body-sm text-body-sm text-secondary dark:text-secondary-fixed-dim">
+          © 2024 Ivri Research. All rights reserved.
+        </p>
+</div>
+</div>
+</footer>
+<script>
+    // Micro-interaction for cards
+    document.querySelectorAll('.area-card').forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        const icon = card.querySelector('.material-symbols-outlined');
+        if (icon) {
+          icon.style.transform = 'scale(1.1) rotate(-5deg)';
+          icon.style.transition = 'transform 0.3s ease';
+        }
+      });
+      card.addEventListener('mouseleave', () => {
+        const icon = card.querySelector('.material-symbols-outlined');
+        if (icon) {
+          icon.style.transform = 'scale(1) rotate(0deg)';
+        }
+      });
+    });
+  </script>
+
+<!-- Contact Modal -->
+<div id="contact-modal" class="hidden fixed inset-0 z-[100] items-center justify-center p-4 sm:p-6 opacity-0 transition-opacity duration-300">
+    <div class="absolute inset-0 bg-on-surface/50 backdrop-blur-sm transition-opacity"></div>
+    <div id="contact-modal-container" class="relative w-full max-w-2xl bg-surface-container-lowest rounded-2xl shadow-2xl opacity-0 scale-95 transition-all duration-300 max-h-[90vh] overflow-y-auto">
+        <div class="p-6 sm:p-8">
+            <div class="flex justify-between items-start mb-6">
+                <div>
+                    <h2 class="font-headline-md text-headline-md text-primary mb-2">Request Consultation</h2>
+                    <p class="font-body-sm text-body-sm text-secondary">Connect with our research strategists to discuss your specific analytical needs.</p>
+                </div>
+                <button id="contact-modal-close" class="text-secondary hover:text-primary transition-colors p-2 -mr-2">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            
+            <div id="form-response" class="hidden"></div>
+            
+            <form id="contact-form" class="space-y-4">
+                <input type="hidden" id="contact-nonce" value="html-mockup">
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="space-y-1">
+                        <label for="contact-name" class="font-label-sm text-label-sm text-on-surface-variant">Full Name *</label>
+                        <input type="text" id="contact-name" class="w-full bg-surface-container-low border border-outline-variant rounded-lg px-4 py-2.5 font-body-sm text-body-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" required>
+                    </div>
+                    <div class="space-y-1">
+                        <label for="contact-email" class="font-label-sm text-label-sm text-on-surface-variant">Work Email *</label>
+                        <input type="email" id="contact-email" class="w-full bg-surface-container-low border border-outline-variant rounded-lg px-4 py-2.5 font-body-sm text-body-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" required>
+                    </div>
+                </div>
+                
+                <div class="space-y-1">
+                    <label for="contact-subject" class="font-label-sm text-label-sm text-on-surface-variant">Subject / Department *</label>
+                    <select id="contact-subject" class="w-full bg-surface-container-low border border-outline-variant rounded-lg px-4 py-2.5 font-body-sm text-body-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all" required>
+                        <option value="">Select an area of interest</option>
+                        <option value="Biotechnology">Biotechnology</option>
+                        <option value="Quantum Systems">Quantum Systems</option>
+                        <option value="Materials Science">Materials Science</option>
+                        <option value="Strategic Audit">Strategic Audit</option>
+                        <option value="Other">Other / General Inquiry</option>
+                    </select>
+                </div>
+                
+                <div class="space-y-1">
+                    <label for="contact-message" class="font-label-sm text-label-sm text-on-surface-variant">Message *</label>
+                    <textarea id="contact-message" rows="4" class="w-full bg-surface-container-low border border-outline-variant rounded-lg px-4 py-2.5 font-body-sm text-body-sm text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all resize-y" required></textarea>
+                </div>
+                
+                <div class="pt-4 flex justify-end">
+                    <button type="submit" id="contact-submit-btn" class="bg-primary text-on-primary px-8 py-3 rounded-lg font-label-md text-label-md hover:bg-opacity-90 transition-all duration-300 w-full sm:w-auto">
+                        Send Message
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="assets/js/contact-modal.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var toggle = document.getElementById('mobile-menu-toggle');
+    var drawer = document.getElementById('mobile-nav-drawer');
+    var backdrop = document.getElementById('mobile-nav-backdrop');
+    var closeBtn = document.getElementById('mobile-nav-close');
+    
+    if (!toggle || !drawer || !backdrop) return;
+    
+    function openNav() {
+        drawer.classList.add('drawer-open');
+        backdrop.classList.add('backdrop-open');
+        document.body.classList.add('overflow-hidden');
+        toggle.setAttribute('aria-expanded', 'true');
+    }
+    
+    function closeNav() {
+        drawer.classList.remove('drawer-open');
+        backdrop.classList.remove('backdrop-open');
+        document.body.classList.remove('overflow-hidden');
+        toggle.setAttribute('aria-expanded', 'false');
+    }
+    
+    toggle.addEventListener('click', function() {
+        if (drawer.classList.contains('drawer-open')) closeNav();
+        else openNav();
+    });
+    
+    if (closeBtn) closeBtn.addEventListener('click', closeNav);
+    backdrop.addEventListener('click', closeNav);
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && drawer.classList.contains('drawer-open')) closeNav();
+    });
+    
+    document.querySelectorAll('.mobile-nav-link').forEach(function(link) {
+        link.addEventListener('click', closeNav);
+    });
+});
+</script>
+
+</body>
+</html>

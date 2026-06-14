@@ -1,0 +1,14 @@
+{
+  "name": "ivri-research-theme",
+  "version": "1.0.0",
+  "description": "Custom WordPress Theme for Ivri Research",
+  "main": "index.php",
+  "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+    "watch": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1",
+    "@tailwindcss/forms": "^0.5.7"
+  }
+}
